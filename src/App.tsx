@@ -18,7 +18,7 @@ function App() {
       <Button variant="contained" onClick={() => logout()}>
         Logout
       </Button>
-      {isAuthenticated ? <div>{user!.name}</div> : <div>Not Loaded</div>}
+      {isAuthenticated && user ? <div>{user.name}</div> : <div>Not Loaded</div>}
     </div>
   );
 }
