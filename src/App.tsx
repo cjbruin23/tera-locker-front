@@ -7,7 +7,7 @@ function App() {
     useAuth0();
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>Loading TEAST...</div>;
   }
 
   return (
