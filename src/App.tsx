@@ -9,9 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./App.css";
 
 function App() {
-  const { loginWithRedirect, logout, user, isAuthenticated, isLoading } =
-    useAuth0();
-
+  const { loginWithRedirect, logout, isLoading } = useAuth0();
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -36,9 +34,11 @@ function App() {
             <Button variant="contained" onClick={() => loginWithRedirect()}>
               Sign Up
             </Button>
-            <Button variant="contained" onClick={() => logout()}>
-              Logout
-            </Button>
+            <div className="logout-button">
+              <Button variant="contained" onClick={() => logout()}>
+                Logout
+              </Button>
+            </div>
           </Toolbar>
         </AppBar>
       </Box>
