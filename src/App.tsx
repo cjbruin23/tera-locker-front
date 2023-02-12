@@ -1,16 +1,16 @@
-import { useAuth0 } from '@auth0/auth0-react'
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
-import Button from '@mui/material/Button'
-import './App.css'
-import BurgerMenu from './components/menu'
+import { useAuth0 } from '@auth0/auth0-react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import './App.css';
+import BurgerMenu from './components/menu';
 
 function App() {
-  const { loginWithRedirect, logout, isLoading } = useAuth0()
+  const { loginWithRedirect, logout, isLoading } = useAuth0();
   if (isLoading) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   return (
@@ -19,7 +19,6 @@ function App() {
         <AppBar position="static">
           <Toolbar>
             <BurgerMenu></BurgerMenu>
-
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               TeraLocker
             </Typography>
@@ -35,7 +34,7 @@ function App() {
         </AppBar>
       </Box>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
