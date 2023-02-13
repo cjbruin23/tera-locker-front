@@ -8,7 +8,6 @@ function BurgerMenu() {
   const open = Boolean(anchorEl);
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    console.log('clicked', anchorEl);
     setAncholEl(event.currentTarget);
   };
 
