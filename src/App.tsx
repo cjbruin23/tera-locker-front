@@ -6,9 +6,35 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import './App.css';
 import BurgerMenu from './components/menu';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function App() {
-  const { loginWithRedirect, logout, isLoading } = useAuth0();
+  const { loginWithRedirect, logout, isLoading, getAccessTokenSilently } =
+    useAuth0();
+
+  const callApi = async () => {
+    try {
+      const accessToken = await getAccessTokenSilently();
+      console.log('accessToken', accessToken);
+      const response = await axios.get(
+        `${import.meta.env.VITE_LOCAL_API_URL}`,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      console.log('responseData', response);
+    } catch (err) {
+      console.log('error', err);
+    }
+  };
+
+  useEffect(() => {
+    callApi();
+  }, []);
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
