@@ -1,14 +1,14 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import { Button } from '@mui/material';
+import { useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import './App.css';
 import BurgerMenu from './components/menu';
 import axios from 'axios';
-import { useEffect } from 'react';
 import UserLoginButton from './components/user-login-button';
-import { Button } from '@mui/material';
+import './App.css';
 
 function App() {
   const { logout, isLoading, getAccessTokenSilently } = useAuth0();
@@ -16,16 +16,11 @@ function App() {
   const callApi = async () => {
     try {
       const accessToken = await getAccessTokenSilently();
-      console.log('accessToken', accessToken);
-      const response = await axios.get(
-        `${import.meta.env.VITE_LOCAL_API_URL}`,
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
-      console.log('responseData', response);
+      await axios.get(`${import.meta.env.VITE_LOCAL_API_URL}/files`, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      });
     } catch (err) {
       console.log('error', err);
     }
