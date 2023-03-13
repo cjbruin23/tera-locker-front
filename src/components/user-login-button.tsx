@@ -5,8 +5,7 @@ const UserLoginButton = () => {
   const { loginWithRedirect, user, isAuthenticated } = useAuth0();
 
   if (isAuthenticated && !!user) {
-    console.log('user', user);
-    return <div>{user.name}</div>;
+    return <div>Hello, {user.name}</div>;
   }
 
   return (
