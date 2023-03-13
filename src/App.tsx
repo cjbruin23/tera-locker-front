@@ -3,15 +3,15 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import './App.css';
 import BurgerMenu from './components/menu';
 import axios from 'axios';
 import { useEffect } from 'react';
+import UserLoginButton from './components/user-login-button';
+import { Button } from '@mui/material';
 
 function App() {
-  const { loginWithRedirect, logout, isLoading, getAccessTokenSilently } =
-    useAuth0();
+  const { logout, isLoading, getAccessTokenSilently } = useAuth0();
 
   const callApi = async () => {
     try {
@@ -48,9 +48,7 @@ function App() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               TeraLocker
             </Typography>
-            <Button variant="contained" onClick={() => loginWithRedirect()}>
-              Sign Up
-            </Button>
+            <UserLoginButton />
             <div className="logout-button">
               <Button variant="contained" onClick={() => logout()}>
                 Logout
