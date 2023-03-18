@@ -9,6 +9,7 @@ import BurgerMenu from './components/menu';
 import axios from 'axios';
 import UserLoginButton from './components/user-login-button';
 import './App.css';
+import FileUploadForm from './components/file-upload-form';
 
 function App() {
   const { logout, isLoading, getAccessTokenSilently } = useAuth0();
@@ -52,6 +53,7 @@ function App() {
           </Toolbar>
         </AppBar>
       </Box>
+      <FileUploadForm></FileUploadForm>
     </div>
   );
 }

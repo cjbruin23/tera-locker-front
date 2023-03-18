@@ -5,7 +5,6 @@ import App from './App';
 import './index.css';
 
 const audience = import.meta.env.VITE_LOCAL_API_AUDIENCE;
-console.log('audience', audience);
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Auth0Provider

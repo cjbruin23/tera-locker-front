@@ -1,10 +1,15 @@
+import { FileInput } from './file-input';
+
 function FileUploadForm() {
   const handleSubmit = () => {
     console.log('submit');
   };
 
-  <form onSubmit={handleSubmit}></form>;
-  return;
+  return (
+    <form onSubmit={handleSubmit}>
+      <FileInput></FileInput>
+    </form>
+  );
 }
 
 export default FileUploadForm;
