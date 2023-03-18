@@ -1,3 +1,9 @@
+import { Button, Input } from '@mui/material';
+
 export const FileInput = () => {
-  return <input type="file" name="file-upload" multiple></input>;
+  return (
+    <Button variant="contained" component="label">
+      <Input type="file" name="file-upload"></Input>;
+    </Button>
+  );
 };
